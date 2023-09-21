@@ -1,12 +1,12 @@
 paths:
   /api/carts/:
     post:
-      summary: Crea un carrito
+      summary: Crea un nuevo carrito de compras
       tags:
         - Carts
       responses:
         "201":
-          description: Carrito agregado de manera satisfactoria
+          description: Carrito de compras agregado exitosamente
           content:
             application/json:
               schema:
@@ -15,14 +15,14 @@ paths:
           description: Error interno del Servidor, usualmente generado por una query defectuosa
   /api/carts/quantity/{cid}:
     get:
-      summary: Obtiene la cantidad de productos de un carrito
+      summary: Obtiene la cantidad de productos agregados a un carrito
       tags:
         - Carts
       parameters:
         - name: cid
           in: path
           required: true
-          description: ID del carrito que se desea solicitar
+          description: Devuelve el ID del carrito que se desea solicitar
           schema:
             $type: String
       responses:
@@ -36,7 +36,7 @@ paths:
           description: Error interno del Servidor, usualmente generado por una query defectuosa
   /api/carts/{cid}:
     get:
-      summary: Obtiene los productos que hay en el carrito
+      summary: Obtiene los productos que hay en el carrito de compras
       tags:
         - Carts
       parameters:
@@ -68,7 +68,7 @@ paths:
             $type: String
       responses:
         "200":
-          description: Productos eliminados de manera satisfactoria
+          description: Productos eliminados exitosamente
           content:
             application/json:
               schema:
@@ -129,14 +129,14 @@ paths:
         "500":
           description: Error interno del Servidor, usualmente generado por una query defectuosa
     put:
-      summary: Actualiza la cantidad de productos que hay dentro de un carrito
+      summary: Actualiza la cantidad de productos que hay en el carrito de compras
       tags:
         - Carts
       parameters:
         - name: cid
           in: path
           required: true
-          description: ID del carrito que se desea solicitar
+          description: ID del carrito que se deseo solicitar
           schema:
             $type: String
         - name: pid
@@ -147,7 +147,7 @@ paths:
             $type: String
       responses:
         "200":
-          description: Cantidad de productos actualizado de manera satisfactoria
+          description: Cantidad de productos actualizado exitosamente
           content:
             application/json:
               schema:
@@ -156,7 +156,7 @@ paths:
           description: Error interno del Servidor, usualmente generado por una query defectuosa
   /api/carts/{cid}/purchase:
     post:
-      summary: Comprar los productos del carrito
+      summary: Comprar los productos que se encuentran en el carrito
       tags:
         - Carts
       parameters:
@@ -184,7 +184,7 @@ components:
         _id:
           type: ObjectId
           description: ID auto generado por Mongo
-        product: 
+        product:
           type: Array
           description: Array de productos dentro del carrito
         quantity:

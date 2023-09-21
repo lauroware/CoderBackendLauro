@@ -9,3 +9,4 @@ warning: ALERTA!
 {"level":"error","message":"Test log error"}
 {"level":"fatal","message":"Test log fatal"}
 {"level":"error","message":"Test log error"}
+warning: ALERTA!

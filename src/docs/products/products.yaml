@@ -1,7 +1,7 @@
 paths:
   /api/products/:
     get:
-      summary: Obtiene todos los productos
+      summary: Obtiene todos los productos del ecommerce
       tags:
         - Products
       responses:
@@ -16,7 +16,7 @@ paths:
         "500":
           description: Error interno del Servidor, usualmente generado por una query defectuosa
     post:
-      summary: Agrega un producto
+      summary: Agrega un nuevo producto
       tags:
         - Products
       requestBody:
@@ -140,7 +140,7 @@ components:
         title: Producto prueba
         description: Este es un producto de prueba
         price: 500
-        thumbnail: https://definicion.de/wp-content/uploads/2009/06/producto.png
+        thumbnail: https://w7.pngwing.com/pngs/918/14/png-transparent-brown-box-cardboard-box-corrugated-box-design-carton-closed-cardboard-box-miscellaneous-cardboard-gift-box-thumbnail.png
         code: abc123
         stock: 50
         status: true
@@ -177,7 +177,7 @@ components:
         title: Producto de prueba actualizado
         description: Este es un producto de prueba actualizado
         price: 500
-        thumbnail: https://definicion.de/wp-content/uploads/2009/06/producto.png
+        thumbnail: https://w7.pngwing.com/pngs/918/14/png-transparent-brown-box-cardboard-box-corrugated-box-design-carton-closed-cardboard-box-miscellaneous-cardboard-gift-box-thumbnail.png
         code: abc123
         stock: 50
         status: true

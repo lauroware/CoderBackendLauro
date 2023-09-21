@@ -54,8 +54,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
 
 // Rutas
-app.use(errorHandler);
 app.use(addLogger);
+app.use(errorHandler);
 app.use(passport.initialize());
 app.use("/auth", authRouter);
 app.use("/api/products", authMiddleware, productsRouter);

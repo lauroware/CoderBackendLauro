@@ -43,7 +43,7 @@
       {{else}}
       {{/if}}
       <div class="btn-group">
-        <h3>Ordenar productos por precio</h3>
+        <h3>Precio: </h3>
         <button
           class="btn btn-outline-success"
           onclick="sortAsc('{{sort}}')"
@@ -55,7 +55,7 @@
       </div>
       <div>
         {{#if query}}{{else}}
-          <h3>Separar por categoría</h3>
+          <h3>Categorías</h3>
           {{#each categories}}
             <button
               class="btn btn-outline-primary"
