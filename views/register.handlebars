@@ -1,0 +1,83 @@
+<div
+  class="containerAuth"
+  style="max-width: 400px; margin: 0 auto; padding: 20px; background-color: #fff; border: 1px solid #ddd; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);"
+>
+  <h1 style="text-align: center; color: #333;">Regístrate</h1>
+  <form class="form" role="form" autocomplete="off" id="formRegister">
+
+    <div class="form-group">
+      <input
+        id="first_name"
+        name="first_name"
+        placeholder="Nombre"
+        class="form-control"
+        type="text"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <input
+        id="last_name"
+        name="last_name"
+        placeholder="Apellido"
+        class="form-control"
+        type="text"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <input
+        id="password"
+        name="password"
+        placeholder="Password"
+        class="form-control"
+        type="password"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <input
+        id="email"
+        name="email"
+        placeholder="Correo electrónico"
+        class="form-control"
+        type="text"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <input
+        id="age"
+        name="age"
+        placeholder="Edad"
+        class="form-control"
+        type="text"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <input
+        class="btn btn-success my-3"
+        type="submit"
+        onclick="submitForm"
+        value="Regístrate"
+        style="width: 100%; background-color: black; color: #fff;"
+      />
+    </div>
+  </form>
+  <div class="text-left">
+    <button
+      class="btn btn-success my-3"
+      onclick="location.href = '/auth/login'"
+      style="width: 100%; background-color: black; color: #fff;"
+    >Iniciar sesión</button>
+  </div>
+</div>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/register.js"></script>

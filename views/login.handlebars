@@ -1,0 +1,72 @@
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar sesión</title>
+    <style>
+      /* Estilos CSS */ body { font-family: Arial, sans-serif; background-color:
+      #f7f7f7; } .containerAuth { max-width: 400px; margin: 0 auto; padding:
+      20px; background-color: #fff; border: 1px solid #ddd; border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); } h1 { text-align: center;
+      color: #333; } .form-group { margin-bottom: 20px; } .form-control { width:
+      100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; } .btn {
+      width: 100%; padding: 10px; border: none; border-radius: 5px; cursor:
+      pointer; font-weight: bold; } .btn-success { background-color: #000000;
+      color: #fff; } .btn-success:hover { background-color: #000000; }
+      .text-left { text-align: left; }
+    </style>
+  </head>
+  <body>
+    <div class="containerAuth">
+      <h1>Iniciar sesión</h1>
+      <form class="form" role="form" autocomplete="off" id="formLogin">
+
+        <div class="form-group">
+          <input
+            id="email"
+            name="email"
+            placeholder="Correo electrónico"
+            class="form-control"
+            type="email"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <input
+            id="password"
+            name="password"
+            placeholder="Contraseña"
+            class="form-control"
+            type="password"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <input
+            class="btn btn-success my-3"
+            type="submit"
+            value="Iniciar sesión"
+          />
+        </div>
+      </form>
+      <div class="text-left">
+        <button
+          class="btn btn-success my-3"
+          onclick="location.href = '/auth/github'"
+        >Registrarse con Github</button>
+        <button
+          class="btn btn-success my-3"
+          onclick="location.href = '/auth/register'"
+        >Registrarse</button>
+        <button
+          class="btn btn-success my-3"
+          onclick="location.href = '/auth/restorePassword'"
+        >Recuperar contraseña</button>
+      </div>
+    </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/login.js"></script>
+  </body>
+</html>

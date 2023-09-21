@@ -1,0 +1,254 @@
+<div class="containerAdmin">
+  <h1>Admin View</h1>
+  <h2>Welcome, {{user.user}}</h2>
+
+  <h3>Users:</h3>
+  <div class="usersAdmin">
+    {{#each allUsers}}
+      <div class="card">
+        <div class="card-body">
+          <form class="form" role="form" autocomplete="off" id="formUserAdmin">
+            <input
+              class="form-control"
+              type="hidden"
+              name="userId"
+              value="{{_id}}"
+            />
+            <label for="username">Username:</label>
+            <input
+              class="form-control"
+              type="text"
+              name="username"
+              value="{{user}}"
+              readonly
+            />
+            <label for="email">Email:</label>
+            <input
+              class="form-control"
+              type="email"
+              name="email"
+              value="{{email}}"
+              readonly
+            />
+            <label for="age">Age:</label>
+            <input
+              class="form-control"
+              type="number"
+              name="age"
+              value="{{age}}"
+              readonly
+            />
+            <label for="age">Role:</label>
+            <input
+              class="form-control"
+              id="newRole-{{_id}}"
+              type="text"
+              name="newRole"
+              value="{{role}}"
+            />
+
+          </form>
+        </div>
+        <div class="card-footer">
+          <button
+            type="button"
+            class="btn btn-outline-success"
+            onclick="updateUserRole('{{_id}}')"
+          >Update</button>
+          <button
+            type="button"
+            class="btn btn-outline-danger"
+            onclick="deleteUserById('{{_id}}')"
+          >Eliminar</button>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
+  <h3>Products:</h3>
+  <!-- Button trigger modal -->
+  <button
+    type="button"
+    class="btn btn-success"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal"
+  >
+    Add Product
+  </button>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Agrega un producto</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form
+            class="form"
+            role="form"
+            autocomplete="off"
+            id="formProductAdmin"
+          >
+            <label for="title" class="form-label">Title:</label>
+            <input
+              id="title"
+              type="text"
+              name="title"
+              class="form-control"
+              required
+            />
+            <label for="description" class="form-label">Description:</label>
+            <input
+              id="description"
+              type="text"
+              name="description"
+              class="form-control"
+              required
+            />
+            <label for="price" class="form-label">Price:</label>
+            <input
+              id="price"
+              type="number"
+              name="price"
+              class="form-control"
+              required
+            />
+            <label for="thumbnail" class="form-label">Thumbnail:</label>
+            <input
+              id="thumbnail"
+              type="text"
+              name="thumbnail"
+              class="form-control"
+              required
+            />
+            <label for="code" class="form-label">Code:</label>
+            <input
+              id="code"
+              type="text"
+              name="code"
+              class="form-control"
+              required
+            />
+            <label for="stock" class="form-label">Stock:</label>
+            <input
+              id="stock"
+              type="number"
+              name="stock"
+              class="form-control"
+              required
+            />
+            <label for="category" class="form-label">Category:</label>
+            <input
+              id="category"
+              type="text"
+              name="category"
+              class="form-control"
+              required
+            />
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >Close</button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            onclick="createNewProduct()"
+          >Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="productsAdmin">
+    {{#each allProducts}}
+      <div class="card">
+        <div class="card-body">
+          <form
+            class="form"
+            role="form"
+            autocomplete="off"
+            id="formProductAdmin"
+          >
+            <input
+              class="form-control"
+              type="hidden"
+              name="productId"
+              value="{{_id}}"
+            />
+            <label for="title">Title:</label>
+            <input
+              id="newTitle-{{_id}}"
+              class="form-control"
+              type="text"
+              name="title"
+              value="{{title}}"
+            />
+            <label for="description">Description:</label>
+            <input
+              id="newDescription-{{_id}}"
+              class="form-control"
+              type="text"
+              name="description"
+              value="{{description}}"
+            />
+            <label for="price">Price:</label>
+            <input
+              id="newPrice-{{_id}}"
+              class="form-control"
+              type="number"
+              name="price"
+              value="{{price}}"
+            />
+            <label for="stock">Stock:</label>
+            <input
+              id="newStock-{{_id}}"
+              class="form-control"
+              type="number"
+              name="stock"
+              value="{{stock}}"
+            />
+            <label for="category">Category:</label>
+            <input
+              id="newCategory-{{_id}}"
+              class="form-control"
+              type="text"
+              name="category"
+              value="{{category}}"
+            />
+
+          </form>
+        </div>
+        <div class="card-footer">
+          <button
+            type="button"
+            class="btn btn-outline-success"
+            onclick="updateProduct('{{_id}}')"
+          >Update</button>
+          <button
+            type="button"
+            class="btn btn-outline-danger"
+            onclick="deleteProductById('{{_id}}')"
+          >Eliminar</button>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/adminView.js"></script>

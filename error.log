@@ -1,0 +1,11 @@
+warning: ALERTA!
+
+{"level":"fatal","message":"Test log fatal"}
+{"level":"fatal","message":"Test log fatal"}
+{"level":"error","message":"Test log error"}
+{"level":"fatal","message":"Test log fatal"}
+{"level":"error","message":"Test log error"}
+{"level":"fatal","message":"Test log fatal"}
+{"level":"error","message":"Test log error"}
+{"level":"fatal","message":"Test log fatal"}
+{"level":"error","message":"Test log error"}

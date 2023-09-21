@@ -1,0 +1,160 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <!-- Agrega la hoja de estilo de Bootstrap y tu propio CSS personalizado -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilo personalizado para containerCheckout */
+        .containerCheckout {
+            text-align: center;
+            margin: 20px auto;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card {
+    width: 100%;
+}
+
+
+        .containerCheckout h1 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .table th, .table td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .lowStock {
+            color: #dc3545;
+        }
+
+        .formInput {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .card {
+            width: 100%;
+        }
+
+        .card-footer {
+            margin-top: 20px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #000000;
+            border-color: #0056b3;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        .btn-danger:hover {
+            background-color: #000000;
+            border-color: #bb2c3b;
+        }
+    </style>
+</head>
+<body>
+    <div class="containerCheckout container">
+        <h1>Checkout</h1>
+        <div class="container-fluid">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Stock</th>
+                        <th scope="col">Cantidad</th>
+                    </tr>
+                </thead>
+                {{#each products}}
+                <tbody>
+                    <tr>
+                        <td>
+                            <p>{{this.product.title}}</p>
+                        </td>
+                        <td>
+                            <p>${{this.product.price}}</p>
+                        </td>
+                        <td>
+                            <p>{{this.product.stock}}</p>
+                        </td>
+                        <td>
+                            <p>{{this.quantity}}</p>
+                        </td>
+                    </tr>
+                    {{/each}}
+                    {{#each outOfStockProducts}}
+                    <tr>
+                        <td>
+                            <p>{{this.product.title}}</p>
+                        </td>
+                        <td>
+                            <p>{{this.product.price}}</p>
+                        </td>
+                        <td>
+                            <p>{{this.product.stock}}</p>
+                            <p class="lowStock">Stock Insuficiente</p>
+                        </td>
+                        <td>
+                            <p>{{this.quantity}}</p>
+                        </td>
+                    </tr>
+                    {{/each}}
+                    <tr>
+                        <td colspan="3">
+                            <p>Total:</p>
+                        </td>
+                        <td>
+                            <p>${{total}}</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="card">
+                <div class="card-body">
+                    <div id="card-element" class="formInput">
+              
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary" onclick="purchaseProducts('{{user.cartId}}')">Comprar</button>
+                    <button class="btn btn-danger" onclick="goBackToCart('{{user.cartId}}')">Volver al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Agrega la librería de Bootstrap y jQuery (necesaria para Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Agrega el script de Stripe si es necesario -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="/js/purchase.js"></script>
+</body>
+</html>

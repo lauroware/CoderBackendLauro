@@ -1,0 +1,184 @@
+paths:
+  /api/products/:
+    get:
+      summary: Obtiene todos los productos
+      tags:
+        - Products
+      responses:
+        "200":
+          description: Productos obtenidos de manera satisfactoria
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#components/schemas/Product"
+        "500":
+          description: Error interno del Servidor, usualmente generado por una query defectuosa
+    post:
+      summary: Agrega un producto
+      tags:
+        - Products
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#components/requestBodies/Product"
+      responses:
+        "201":
+          description: Producto agregado de manera satisfactoria
+          content:
+            application/json:
+              schema:
+                $ref: "#components/schemas/Product"
+        "500":
+          description: Error interno del Servidor, usualmente generado por una query defectuosa
+
+  /api/products/{pid}:
+    get:
+      summary: Obtiene un solo producto a partir de su ID
+      tags:
+        - Products
+      parameters:
+        - name: pid
+          in: path
+          required: true
+          description: ID del producto que se desea solicitar
+          schema:
+            $type: String
+      responses:
+        "200":
+          description: Producto obtenido de manera satisfactoria
+          content:
+            application/json:
+              schema:
+                $ref: "#components/schemas/Product"
+        "500":
+          description: Error interno del Servidor, usualmente generado por una query defectuosa
+    put:
+      summary: Actualiza un producto a partir de su ID
+      tags:
+        - Products
+      parameters:
+        - name: pid
+          in: path
+          required: true
+          description: ID del producto que se desea actualizar
+          schema:
+            $type: String
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#components/requestBodies/Product"
+      responses:
+        "201":
+          description: Producto actualizado de manera satisfactoria
+          content:
+            application/json:
+              schema:
+                $ref: "#components/schemas/Product"
+        "500":
+          description: Error interno del Servidor, usualmente generado por una query defectuosa
+    delete:
+      summary: Elimina un producto a partir de su ID
+      tags:
+        - Products
+      parameters:
+        - name: pid
+          in: path
+          required: true
+          description: ID del producto que se desea eliminar
+          schema:
+            $type: String
+      responses:
+        "200":
+          description: Producto eliminado de manera satisfactoria
+          content:
+            application/json:
+              schema:
+                $ref: "#components/schemas/Product"
+        "500":
+          description: Error interno del Servidor, usualmente generado por una query defectuosa
+
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: ID autogenerado por Mongo
+        title:
+          type: String
+          description: Nombre del producto
+        description:
+          type: String
+          description: Descripción del producto
+        price:
+          type: Number
+          description: Precio del producto
+        thumbnail:
+          type: String
+          description: Imágen del producto
+        code:
+          type: String
+          description: Codigo del producto, este campo es unico
+        stock:
+          type: Number
+          description: Stock del producto
+        status:
+          type: Boolean
+          description: Estado del producto, su valor por defecto es true
+        category:
+          type: String
+          description: Categoria del producto
+      example:
+        _id: ObjectId('64054d4cef58c3c4f9aeb087')
+        title: Producto prueba
+        description: Este es un producto de prueba
+        price: 500
+        thumbnail: https://definicion.de/wp-content/uploads/2009/06/producto.png
+        code: abc123
+        stock: 50
+        status: true
+        category: productos
+  requestBodies:
+    Product:
+      type: object
+      properties:
+        title:
+          type: String
+          description: Nombre del producto
+        description:
+          type: String
+          description: Descripción del producto
+        price:
+          type: Number
+          description: Precio del producto
+        thumbnail:
+          type: String
+          description: Imágen del producto
+        code:
+          type: String
+          description: Codigo del producto, este campo es unico
+        stock:
+          type: Number
+          description: Stock del producto
+        status:
+          type: Boolean
+          description: Estado del producto, su valor por defecto es true
+        category:
+          type: String
+          description: Categoria del producto
+      example:
+        title: Producto de prueba actualizado
+        description: Este es un producto de prueba actualizado
+        price: 500
+        thumbnail: https://definicion.de/wp-content/uploads/2009/06/producto.png
+        code: abc123
+        stock: 50
+        status: true
+        category: productos
